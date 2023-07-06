@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 interface MarkdownInputProps {
   value: string;
-  onChange: () => void;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
 const InputContainer = styled.div`
@@ -22,10 +22,10 @@ const StyledTextArea = styled.textarea`
   outline: none;
 `;
 
-function MarkdownInput() {
+function MarkdownInput({ value, onChange }: MarkdownInputProps) {
   return (
     <InputContainer>
-      <StyledTextArea placeholder="# Hello" />
+      <StyledTextArea value={value} onChange={onChange} />
     </InputContainer>
   );
 }
